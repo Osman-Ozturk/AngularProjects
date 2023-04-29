@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-5 mx-auto">
+            <h3 class="bg-primary text-white p-3 mx-auto">
+                {{getName()}} Todos 
+            </h3>
+            <div class="input-group mb-3">
+                <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="inputText"
+                >
+                <button 
+                [class]="{
+                    'disabled':inputText.length == 0,
+                    'btn-secondary':inputText.length == 0,
+                    'btn-primary':inputText.length > 0,
+                }"
+                class="btn" 
+                (click)="addItem();inputText=''"
+                >Add</button>
+            </div>
+            <div class="form-control mb-3">
+                <input type="checkbox" [(ngModel)]="displayAll" class="form-check-input" id="displayAll">
+                <label for="displayAll" class="form-check-label">Show done</label>
+            </div>
+            
+            <div class="alert alert-warning" *ngIf="getItems().length === 0 else itemsTable">All tasks were completed</div>
+            <ng-template  #itemsTable>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Description </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-white" *ngFor="let item of getItems()" [class.bg-primary]="item.done" [class.bg-warning]="!item.done">
+                            <td>{{item.id}}</td>
+                            <td>{{item.description}}</td>
+                            <td>
+                                <div [ngSwitch]="item.done">
+                                    <div *ngSwitchCase="true">Yes</div>
+                                    <div *ngSwitchCase="false">No</div>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="checkbox" (change)="onDoneChange(item)" [(ngModel)]="item.done">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-template>
+        </div>
+    </div>
+</div>
