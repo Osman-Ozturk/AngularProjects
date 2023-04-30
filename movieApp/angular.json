@@ -5,7 +5,14 @@
   "projects": {
     "movieApp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "strict": true
+        },
+        "i18n":{
+          "locale": "gr"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
