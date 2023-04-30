@@ -10,6 +10,7 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { FooterComponent } from './footer/footer.component';
 import { SummaryPipe } from './pipes/summary.pipe';
 import { FormsModule } from '@angular/forms';
+import { MovieFilterPipe } from './pipes/movie-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     MovieComponent,
     MovieDetailsComponent,
     FooterComponent,
-    SummaryPipe
+    SummaryPipe,
+    MovieFilterPipe
   ],
   imports: [
     BrowserModule,
