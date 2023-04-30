@@ -3,4 +3,5 @@ export interface MovieModel {
     img: string;
     title: string;
     desc: string;
+    isPopular:boolean
 }
