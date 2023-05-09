@@ -28,7 +28,7 @@
           <p class="card-text">{{movie.datePublished | date:'mediumDate' }}</p>
           <div>
             <button class="btn btn-sm btn-outline-primary">Details</button>
-            <button class="btn btn-sm btn-outline-primary" (click)="AddList($event,movie)">Add to List</button>
+            <button (click)="AddList($event,movie)" class="btn btn-sm btn-primary" >Add to List</button>
           </div>
         </div>
       </div>
